@@ -1,0 +1,29 @@
+﻿@model NerdDinner.Models.IntraAgent
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @if (Model == null || !Model.AgentRunning)
+    {
+        <span>Agent not running</span>
+        <br />
+        if (Model != null)
+        {
+            @Html.ActionLink("Start", "Start")
+        }
+        else
+        {
+            @Html.ActionLink("Start", "Edit")
+        }
+    }
+    else
+    {
+        <span>Agent running. Username: @Model.IntraUserName</span><br />
+         @Html.ActionLink("Stop Agent", "Stop")<br/>
+         @Html.ActionLink("Change user and password", "Edit")
+    }
+</p>
